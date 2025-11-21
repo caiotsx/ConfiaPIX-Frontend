@@ -1,8 +1,6 @@
 constAPI_BASE_URL = 'https://confiapix.onrender.com';
 //constAPI_BASE_URL = 'http://localhost:8081';
 
-
-// ===== Tema escuro / claro =====
 const themeBtn = document.getElementById('themeBtn');
 const currentTheme = localStorage.getItem('confiaPIX_theme');
 
@@ -18,7 +16,6 @@ themeBtn.addEventListener('click', () => {
   localStorage.setItem('confiaPIX_theme', isDark ? 'dark' : 'light');
 });
 
-// ===== Atualizar nome e foto do usuário =====
     window.addEventListener('DOMContentLoaded', () => {
       const storedUser = localStorage.getItem('confiaPIX_user');
       const userPhoto = document.getElementById('userPhoto');
@@ -33,12 +30,10 @@ themeBtn.addEventListener('click', () => {
           userPhoto.src = user.photo;
         }
       } else {
-        // Se não estiver logado, redireciona para login
         window.location.href = 'login.html';
       }
     });
 
-    // ===== Lógica de upload e validação =====
     const fileInput = document.getElementById('fileInput');
     const selectFileBtn = document.getElementById('selectFileBtn');
     const preview = document.getElementById('preview');
@@ -109,12 +104,12 @@ themeBtn.addEventListener('click', () => {
     if (valido === true) {
         statusBox.style.background = '#e0f2f1';
         statusBox.style.color = '#00796b';
-        statusBox.textContent = `✅ Comprovante válido!`;
+        statusBox.textContent = `✅ Comprovante válido!\n Todas as informações constam no banco de dados original.`;
     } 
     else if (valido === false) {
         statusBox.style.background = '#ffebee';
         statusBox.style.color = '#c62828';
-        statusBox.textContent = `❌ Comprovante falso: ${motivo}`;
+        statusBox.textContent = `❌ Comprovante suspeito ou falso: ${motivo}`;
     } 
     else {
         statusBox.style.background = '#fff3e0';
